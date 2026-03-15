@@ -16,17 +16,19 @@ const SystemStatusBar = () => {
   }, []);
 
   return (
-    <div className="w-full border-b border-border bg-background/80 backdrop-blur-sm">
-      <div className="container flex items-center justify-between py-1.5 font-mono text-[11px] tracking-wider text-muted-foreground">
+    <div className="w-full border-b border-border bg-background">
+      <div className="container flex items-center justify-between py-2 font-mono text-[11px] tracking-[0.15em] text-muted-foreground">
         <div className="flex items-center gap-4">
+          <span className="text-cobalt">●</span>
           <span>ACCRA {time}</span>
-          <span className="hidden sm:inline">LAT 5.6037° N / LONG 0.1870° W</span>
+          <span className="hidden sm:inline text-border">|</span>
+          <span className="hidden sm:inline">5.6037° N / 0.1870° W</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline">SYS LOAD 12%</span>
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            NETWORK NOMINAL
+          <span className="hidden sm:inline">SYS 12%</span>
+          <span className="flex items-center gap-2">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            ONLINE
           </span>
         </div>
       </div>

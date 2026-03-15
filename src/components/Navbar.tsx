@@ -21,22 +21,22 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="container flex h-14 items-center justify-between">
-        <Link to="/" className="font-mono text-lg font-bold tracking-tight text-foreground">
+    <nav className="sticky top-0 z-50 w-full glass-panel border-b border-border">
+      <div className="container flex h-16 items-center justify-between">
+        <Link to="/" className="font-mono text-xl font-bold tracking-tight text-foreground">
           TELECO<span className="text-cobalt">.</span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((l) => (
             <Link
               key={l.path}
               to={l.path}
-              className={`px-3 py-1.5 text-sm transition-colors duration-200 rounded-sm ${
+              className={`px-3 py-1.5 text-sm transition-all duration-200 rounded-md ${
                 location.pathname === l.path
                   ? "text-foreground bg-secondary"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               }`}
             >
               {l.label}
@@ -44,24 +44,24 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             to="/ask"
-            className="px-4 py-1.5 text-sm text-muted-foreground border border-border rounded-sm hover:bg-secondary transition-colors"
+            className="px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-secondary hover:text-foreground transition-all duration-200"
           >
             Ask a Question
           </Link>
           <Link
             to="/start-project"
-            className="px-4 py-1.5 text-sm text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity"
+            className="btn-primary !py-2 text-sm"
           >
             Start a Project
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground p-1">
-          {open ? <X size={20} strokeWidth={1.25} /> : <Menu size={20} strokeWidth={1.25} />}
+        <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground p-1.5 rounded-md hover:bg-secondary transition-colors">
+          {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
       </div>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
             className="overflow-hidden border-t border-border lg:hidden"
           >
             <div className="container flex flex-col gap-1 py-4">
@@ -81,20 +81,20 @@ const Navbar = () => {
                   key={l.path}
                   to={l.path}
                   onClick={() => setOpen(false)}
-                  className={`px-3 py-2 text-sm rounded-sm ${
+                  className={`px-3 py-2.5 text-sm rounded-md ${
                     location.pathname === l.path
                       ? "text-foreground bg-secondary"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                   }`}
                 >
                   {l.label}
                 </Link>
               ))}
-              <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-                <Link to="/ask" onClick={() => setOpen(false)} className="px-3 py-2 text-sm text-muted-foreground border border-border rounded-sm text-center">
+              <div className="mt-3 flex flex-col gap-2 border-t border-border pt-4">
+                <Link to="/ask" onClick={() => setOpen(false)} className="px-4 py-2.5 text-sm text-muted-foreground border border-border rounded-lg text-center">
                   Ask a Question
                 </Link>
-                <Link to="/start-project" onClick={() => setOpen(false)} className="px-3 py-2 text-sm text-primary-foreground bg-cobalt rounded-sm text-center">
+                <Link to="/start-project" onClick={() => setOpen(false)} className="btn-primary justify-center text-sm">
                   Start a Project
                 </Link>
               </div>
