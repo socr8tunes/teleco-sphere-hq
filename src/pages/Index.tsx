@@ -42,7 +42,7 @@ const Index = () => (
       <div className="absolute inset-0">
         <img src={heroImg} alt="Telecommunications infrastructure at dusk" className="h-full w-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/90 to-background" />
-        <div className="absolute inset-0 tech-grid opacity-30" />
+        
       </div>
 
       {/* Floating orbs */}
