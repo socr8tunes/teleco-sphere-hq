@@ -80,12 +80,6 @@
     font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   }
 
-  .tech-grid {
-    background-size: 60px 60px;
-    background-image:
-      linear-gradient(to right, hsl(var(--tech-line)) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--tech-line)) 1px, transparent 1px);
-  }
 
   .border-industrial {
     border-color: hsl(var(--border));
