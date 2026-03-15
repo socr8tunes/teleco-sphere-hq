@@ -157,9 +157,6 @@
     border-bottom: 1px solid hsl(var(--border));
   }
 
-  .bg-grid-fade {
-    background: radial-gradient(ellipse at center, transparent 0%, hsl(var(--background)) 70%);
-  }
 
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300;

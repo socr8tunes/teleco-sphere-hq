@@ -47,7 +47,7 @@ const About = () => (
     </section>
 
     {/* What we build */}
-    <section className="border-b border-border tech-grid">
+    <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="01" label="Capabilities" />
         <h2 className="text-3xl font-bold text-foreground md:text-5xl">What Teleco Builds</h2>

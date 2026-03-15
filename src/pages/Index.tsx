@@ -215,7 +215,7 @@ const Index = () => (
 
     {/* CTA */}
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-15" />
+      
       <div className="orb w-[600px] h-[600px] bg-cobalt/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative z-10 py-28 text-center">
         <SectionLabel number="04" label="Get Started" />
