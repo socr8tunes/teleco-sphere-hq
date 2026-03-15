@@ -102,8 +102,6 @@ const Index = () => (
 
     {/* Services */}
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20" />
-      <div className="absolute inset-0 bg-grid-fade" />
       <div className="container relative z-10 py-24">
         <SectionLabel number="01" label="Services" />
         <h2 className="text-4xl font-bold text-foreground md:text-6xl mt-4">
