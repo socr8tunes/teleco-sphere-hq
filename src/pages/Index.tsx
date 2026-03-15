@@ -42,7 +42,7 @@ const Index = () => (
       <div className="absolute inset-0">
         <img src={heroImg} alt="Telecommunications infrastructure at dusk" className="h-full w-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/90 to-background" />
-        <div className="absolute inset-0 tech-grid opacity-30" />
+        
       </div>
 
       {/* Floating orbs */}
@@ -102,8 +102,6 @@ const Index = () => (
 
     {/* Services */}
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20" />
-      <div className="absolute inset-0 bg-grid-fade" />
       <div className="container relative z-10 py-24">
         <SectionLabel number="01" label="Services" />
         <h2 className="text-4xl font-bold text-foreground md:text-6xl mt-4">
@@ -217,7 +215,7 @@ const Index = () => (
 
     {/* CTA */}
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-15" />
+      
       <div className="orb w-[600px] h-[600px] bg-cobalt/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative z-10 py-28 text-center">
         <SectionLabel number="04" label="Get Started" />
