@@ -2,12 +2,24 @@ import { useState } from "react";
 import { Send, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
+import { submitForm } from "@/lib/api";
 
 const StartProject = () => {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    await submitForm({
+      type: "start_project",
+      name: fd.get("name") as string,
+      company: fd.get("company") as string,
+      email: fd.get("email") as string,
+      phone: fd.get("phone") as string,
+      service: fd.get("service") as string,
+      description: fd.get("description") as string,
+      budget: fd.get("budget") as string,
+    });
     setSubmitted(true);
   };
 

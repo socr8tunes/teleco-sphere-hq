@@ -2,12 +2,23 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
+import { submitForm } from "@/lib/api";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    await submitForm({
+      type: "contact",
+      name: fd.get("name") as string,
+      company: fd.get("company") as string,
+      email: fd.get("email") as string,
+      phone: fd.get("phone") as string,
+      service: fd.get("service") as string,
+      message: fd.get("message") as string,
+    });
     setSubmitted(true);
   };
 
