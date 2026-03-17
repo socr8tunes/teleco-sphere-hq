@@ -34,12 +34,12 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="serial-number mb-2">[PHONE]</h4>
-                <p className="text-sm text-foreground">+233 (0) 30 XXX XXXX</p>
+                <p className="text-sm text-foreground">+233 597 420 752</p>
               </div>
               <div>
                 <h4 className="serial-number mb-2">[LOCATION]</h4>
-                <p className="text-sm text-foreground">Accra, Ghana</p>
-                <p className="text-xs text-muted-foreground mt-1">LAT 5.6037° N / LONG 0.1870° W</p>
+                <p className="text-sm text-foreground">111 Nsunfa Temple Street</p>
+                <p className="text-sm text-foreground">Sowutuom - Accra</p>
               </div>
               <div>
                 <h4 className="serial-number mb-2">[HOURS]</h4>
