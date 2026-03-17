@@ -98,7 +98,7 @@ const Contact = () => {
                   </div>
                   <div className="md:col-span-2">
                     <label className="serial-number block mb-2">PROJECT DESCRIPTION *</label>
-                    <textarea required maxLength={2000} rows={5} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Tell us about your project..." />
+                    <textarea required name="message" maxLength={2000} rows={5} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Tell us about your project..." />
                   </div>
                   <div className="md:col-span-2">
                     <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">

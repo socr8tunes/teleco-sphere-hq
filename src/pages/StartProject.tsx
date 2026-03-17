@@ -52,20 +52,24 @@ const StartProject = () => {
                 </div>
                 <div>
                   <label className="serial-number block mb-2">COMPANY *</label>
-                  <input required type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Company name" />
+                  <input required name="name" type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Full name" />
+                </div>
+                <div>
+                  <label className="serial-number block mb-2">COMPANY *</label>
+                  <input required name="company" type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Company name" />
                 </div>
                 <div>
                   <label className="serial-number block mb-2">EMAIL *</label>
-                  <input required type="email" maxLength={255} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="email@company.com" />
+                  <input required name="email" type="email" maxLength={255} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="email@company.com" />
                 </div>
                 <div>
                   <label className="serial-number block mb-2">PHONE</label>
-                  <input type="tel" maxLength={20} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="+233..." />
+                  <input name="phone" type="tel" maxLength={20} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="+233..." />
                 </div>
               </div>
               <div>
                 <label className="serial-number block mb-2">SERVICE CATEGORY *</label>
-                <select required className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors">
+                <select required name="service" className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors">
                   <option value="">Select service</option>
                   <option>Telecommunications Infrastructure</option>
                   <option>Software Development</option>
@@ -77,11 +81,11 @@ const StartProject = () => {
               </div>
               <div>
                 <label className="serial-number block mb-2">PROJECT DESCRIPTION *</label>
-                <textarea required maxLength={3000} rows={6} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Describe your project requirements, timeline, and any technical specifications..." />
+                <textarea required name="description" maxLength={3000} rows={6} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Describe your project requirements, timeline, and any technical specifications..." />
               </div>
               <div>
                 <label className="serial-number block mb-2">BUDGET RANGE (OPTIONAL)</label>
-                <select className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors">
+                <select name="budget" className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors">
                   <option value="">Prefer not to say</option>
                   <option>Under $10,000</option>
                   <option>$10,000 – $50,000</option>
