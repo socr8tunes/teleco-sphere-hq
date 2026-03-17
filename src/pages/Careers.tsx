@@ -17,36 +17,18 @@ const Careers = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(e.currentTarget);
 
-    const payload = {
+    await submitForm({
       type: "career_application",
       position: applyingTo || formData.get("position") || "General Application",
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      experience: formData.get("experience"),
-      coverLetter: formData.get("coverLetter"),
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      experience: formData.get("experience") as string,
+      coverLetter: formData.get("coverLetter") as string,
       cvFileName: cvFile?.name || "Not attached",
-    };
-
-    try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-      if (supabaseUrl && supabaseAnonKey) {
-        await fetch(`${supabaseUrl}/functions/v1/send-form-email`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${supabaseAnonKey}`,
-          },
-          body: JSON.stringify(payload),
-        });
-      }
-    } catch (err) {
-      console.error("Email send failed:", err);
-    }
+    });
 
     setSubmitted(true);
   };
