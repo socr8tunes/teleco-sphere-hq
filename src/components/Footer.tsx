@@ -67,8 +67,8 @@ const Footer = () => (
           <h4 className="serial-number mb-5">Contact</h4>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p>info@teleco.com.gh</p>
-            <p>+233 (0) 30 XXX XXXX</p>
-            <p>Accra, Ghana</p>
+            <p>+233 597 420 752</p>
+            <p>111 Nsunfa Temple Street, Sowutuom - Accra</p>
           </div>
           <div className="mt-6 flex gap-2">
             <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy</Link>
