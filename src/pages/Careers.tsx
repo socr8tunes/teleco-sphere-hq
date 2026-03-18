@@ -211,7 +211,6 @@ const Careers = () => {
               >
                 {submitting ? "Submitting…" : "Submit Application"} <Send size={14} strokeWidth={1.25} />
               </button>
-              </button>
             </form>
           )}
         </div>
