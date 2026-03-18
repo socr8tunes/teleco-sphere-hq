@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
 const AskQuestion = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Sending question…");
     const fd = new FormData(e.currentTarget);
-    await submitForm({
+    const ok = await submitForm({
       type: "ask_question",
       name: fd.get("name") as string,
       email: fd.get("email") as string,
@@ -19,7 +23,13 @@ const AskQuestion = () => {
       subject: fd.get("subject") as string,
       message: fd.get("message") as string,
     });
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Question sent!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to send. Please try again.", { id: toastId });
+    }
   };
 
   return (
@@ -77,8 +87,8 @@ const AskQuestion = () => {
                 <label className="serial-number block mb-2">MESSAGE *</label>
                 <textarea required name="message" maxLength={2000} rows={5} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Your question..." />
               </div>
-              <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">
-                Send Question <Send size={14} strokeWidth={1.25} />
+              <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50">
+                {submitting ? "Sending…" : "Send Question"} <Send size={14} strokeWidth={1.25} />
               </button>
             </form>
           )}

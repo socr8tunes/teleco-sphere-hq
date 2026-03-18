@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Send, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
 const StartProject = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Submitting inquiry…");
     const fd = new FormData(e.currentTarget);
-    await submitForm({
+    const ok = await submitForm({
       type: "start_project",
       name: fd.get("name") as string,
       company: fd.get("company") as string,
@@ -20,7 +24,13 @@ const StartProject = () => {
       description: fd.get("description") as string,
       budget: fd.get("budget") as string,
     });
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Inquiry submitted!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to submit. Please try again.", { id: toastId });
+    }
   };
 
   return (
@@ -93,8 +103,8 @@ const StartProject = () => {
                   <option>$100,000+</option>
                 </select>
               </div>
-              <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">
-                Submit Inquiry <ArrowRight size={14} strokeWidth={1.25} />
+              <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50">
+                {submitting ? "Submitting…" : "Submit Inquiry"} <ArrowRight size={14} strokeWidth={1.25} />
               </button>
             </form>
           )}

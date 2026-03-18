@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Sending message…");
     const fd = new FormData(e.currentTarget);
-    await submitForm({
+    const ok = await submitForm({
       type: "contact",
       name: fd.get("name") as string,
       company: fd.get("company") as string,
@@ -19,7 +23,13 @@ const Contact = () => {
       service: fd.get("service") as string,
       message: fd.get("message") as string,
     });
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Message sent successfully!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to send. Please try again.", { id: toastId });
+    }
   };
 
   return (
@@ -101,8 +111,8 @@ const Contact = () => {
                     <textarea required name="message" maxLength={2000} rows={5} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Tell us about your project..." />
                   </div>
                   <div className="md:col-span-2">
-                    <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">
-                      Send Message <Send size={14} strokeWidth={1.25} />
+                    <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50">
+                      {submitting ? "Sending…" : "Send Message"} <Send size={14} strokeWidth={1.25} />
                     </button>
                   </div>
                 </form>
