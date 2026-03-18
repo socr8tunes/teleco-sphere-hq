@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Sending message…");
     const fd = new FormData(e.currentTarget);
-    await submitForm({
+    const ok = await submitForm({
       type: "contact",
       name: fd.get("name") as string,
       company: fd.get("company") as string,
@@ -19,7 +23,13 @@ const Contact = () => {
       service: fd.get("service") as string,
       message: fd.get("message") as string,
     });
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Message sent successfully!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to send. Please try again.", { id: toastId });
+    }
   };
 
   return (
