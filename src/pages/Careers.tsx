@@ -15,22 +15,28 @@ const Careers = () => {
   const [submitted, setSubmitted] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
 
+  const [submitting, setSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
 
-    await submitForm({
-      type: "career_application",
-      position: applyingTo || formData.get("position") || "General Application",
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      experience: formData.get("experience") as string,
-      coverLetter: formData.get("coverLetter") as string,
-      cvFileName: cvFile?.name || "Not attached",
-    });
+    const ok = await submitCareerApplication(
+      {
+        type: "career_application",
+        position: applyingTo || (fd.get("position") as string) || "General Application",
+        name: fd.get("name") as string,
+        email: fd.get("email") as string,
+        phone: (fd.get("phone") as string) || "",
+        experience: fd.get("experience") as string,
+        coverLetter: fd.get("coverLetter") as string,
+      },
+      cvFile
+    );
 
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) setSubmitted(true);
   };
 
   return (
