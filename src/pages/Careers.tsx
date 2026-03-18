@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Upload, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
-import { submitForm } from "@/lib/api";
+import { submitCareerApplication } from "@/lib/api";
 
 const jobs = [
   { id: "01", title: "Senior Network Engineer", type: "Full-time", location: "Accra, Ghana" },
@@ -15,22 +15,28 @@ const Careers = () => {
   const [submitted, setSubmitted] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
 
+  const [submitting, setSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
 
-    await submitForm({
-      type: "career_application",
-      position: applyingTo || formData.get("position") || "General Application",
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      experience: formData.get("experience") as string,
-      coverLetter: formData.get("coverLetter") as string,
-      cvFileName: cvFile?.name || "Not attached",
-    });
+    const ok = await submitCareerApplication(
+      {
+        type: "career_application",
+        position: applyingTo || (fd.get("position") as string) || "General Application",
+        name: fd.get("name") as string,
+        email: fd.get("email") as string,
+        phone: (fd.get("phone") as string) || "",
+        experience: fd.get("experience") as string,
+        coverLetter: fd.get("coverLetter") as string,
+      },
+      cvFile
+    );
 
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) setSubmitted(true);
   };
 
   return (
@@ -200,9 +206,10 @@ const Careers = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50"
               >
-                Submit Application <Send size={14} strokeWidth={1.25} />
+                {submitting ? "Submitting…" : "Submit Application"} <Send size={14} strokeWidth={1.25} />
               </button>
             </form>
           )}
