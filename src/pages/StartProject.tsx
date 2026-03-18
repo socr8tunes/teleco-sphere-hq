@@ -103,8 +103,8 @@ const StartProject = () => {
                   <option>$100,000+</option>
                 </select>
               </div>
-              <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">
-                Submit Inquiry <ArrowRight size={14} strokeWidth={1.25} />
+              <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50">
+                {submitting ? "Submitting…" : "Submit Inquiry"} <ArrowRight size={14} strokeWidth={1.25} />
               </button>
             </form>
           )}

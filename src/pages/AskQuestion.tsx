@@ -87,8 +87,8 @@ const AskQuestion = () => {
                 <label className="serial-number block mb-2">MESSAGE *</label>
                 <textarea required name="message" maxLength={2000} rows={5} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors resize-none" placeholder="Your question..." />
               </div>
-              <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]">
-                Send Question <Send size={14} strokeWidth={1.25} />
+              <button type="submit" disabled={submitting} className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50">
+                {submitting ? "Sending…" : "Send Question"} <Send size={14} strokeWidth={1.25} />
               </button>
             </form>
           )}

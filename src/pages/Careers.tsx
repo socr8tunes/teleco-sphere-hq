@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Upload, Send } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitCareerApplication } from "@/lib/api";
@@ -14,12 +15,12 @@ const Careers = () => {
   const [applyingTo, setApplyingTo] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
-
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    const toastId = toast.loading("Submitting application…");
     const fd = new FormData(e.currentTarget);
 
     const ok = await submitCareerApplication(
@@ -36,7 +37,12 @@ const Careers = () => {
     );
 
     setSubmitting(false);
-    if (ok) setSubmitted(true);
+    if (ok) {
+      toast.success("Application submitted!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to submit. Please try again.", { id: toastId });
+    }
   };
 
   return (
