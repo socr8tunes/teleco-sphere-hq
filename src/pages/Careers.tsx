@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Upload, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
-import { submitForm } from "@/lib/api";
+import { submitCareerApplication } from "@/lib/api";
 
 const jobs = [
   { id: "01", title: "Senior Network Engineer", type: "Full-time", location: "Accra, Ghana" },
