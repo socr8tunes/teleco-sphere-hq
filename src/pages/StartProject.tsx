@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Send, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
 const StartProject = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Submitting inquiry…");
     const fd = new FormData(e.currentTarget);
-    await submitForm({
+    const ok = await submitForm({
       type: "start_project",
       name: fd.get("name") as string,
       company: fd.get("company") as string,
@@ -20,7 +24,13 @@ const StartProject = () => {
       description: fd.get("description") as string,
       budget: fd.get("budget") as string,
     });
-    setSubmitted(true);
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Inquiry submitted!", { id: toastId });
+      setSubmitted(true);
+    } else {
+      toast.error("Failed to submit. Please try again.", { id: toastId });
+    }
   };
 
   return (
