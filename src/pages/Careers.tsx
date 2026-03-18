@@ -206,9 +206,11 @@ const Careers = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98]"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-primary-foreground bg-cobalt rounded-sm hover:opacity-90 transition-opacity active:scale-[0.98] disabled:opacity-50"
               >
-                Submit Application <Send size={14} strokeWidth={1.25} />
+                {submitting ? "Submitting…" : "Submit Application"} <Send size={14} strokeWidth={1.25} />
+              </button>
               </button>
             </form>
           )}
