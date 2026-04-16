@@ -155,9 +155,16 @@ const Careers = () => {
                     className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors"
                   >
                     <option value="General Application">General / Open Application</option>
-                    {jobs.map((j) => (
-                      <option key={j.id} value={j.title}>{j.title}</option>
-                    ))}
+                    <optgroup label="Full-time Positions">
+                      {jobs.map((j) => (
+                        <option key={j.id} value={j.title}>{j.title}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Internships">
+                      {internships.map((i) => (
+                        <option key={i.id} value={i.title}>{i.title}</option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
               )}
