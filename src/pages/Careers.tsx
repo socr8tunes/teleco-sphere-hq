@@ -11,6 +11,12 @@ const jobs = [
   { id: "03", title: "Embedded Systems Engineer", type: "Full-time", location: "Accra, Ghana" },
 ];
 
+const internships = [
+  { id: "I1", title: "Network Engineering Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I2", title: "Software Development Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I3", title: "IT Support Intern", duration: "3–6 months", location: "Accra, Ghana" },
+];
+
 const Careers = () => {
   const [applyingTo, setApplyingTo] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -83,6 +89,32 @@ const Careers = () => {
         </div>
       </section>
 
+      {/* Internships */}
+      <section className="border-b border-border">
+        <div className="container max-w-3xl py-16 space-y-0">
+          <h2 className="serial-number mb-6">INTERNSHIP OPPORTUNITIES</h2>
+          {internships.map((i) => (
+            <div key={i.id} className="surface-card p-6 flex items-center justify-between group">
+              <div>
+                <span className="serial-number">[{i.id}]</span>
+                <h3 className="mt-1 text-sm font-bold text-foreground">{i.title}</h3>
+                <p className="text-xs text-muted-foreground">{i.duration} — {i.location}</p>
+              </div>
+              <button
+                onClick={() => {
+                  setApplyingTo(i.title);
+                  setSubmitted(false);
+                  document.getElementById("apply-section")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="text-cobalt opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-xs font-medium"
+              >
+                Apply <ArrowRight size={14} strokeWidth={1.25} />
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Application Form */}
       <section id="apply-section">
         <div className="container max-w-2xl py-16">
@@ -123,9 +155,16 @@ const Careers = () => {
                     className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors"
                   >
                     <option value="General Application">General / Open Application</option>
-                    {jobs.map((j) => (
-                      <option key={j.id} value={j.title}>{j.title}</option>
-                    ))}
+                    <optgroup label="Full-time Positions">
+                      {jobs.map((j) => (
+                        <option key={j.id} value={j.title}>{j.title}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Internships">
+                      {internships.map((i) => (
+                        <option key={i.id} value={i.title}>{i.title}</option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
               )}
