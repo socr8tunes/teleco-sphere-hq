@@ -240,11 +240,13 @@ const Careers = () => {
               </div>
 
               <div>
-                <label className="serial-number block mb-2">UPLOAD CV / RESUME</label>
+                <label className="serial-number block mb-2">
+                  UPLOAD CV / RESUME {isInternship ? "(Optional)" : ""}
+                </label>
                 <label className="flex items-center gap-3 w-full border border-dashed border-border rounded-sm px-4 py-4 cursor-pointer hover:border-cobalt transition-colors">
                   <Upload size={18} className="text-muted-foreground" strokeWidth={1.25} />
                   <span className="text-sm text-muted-foreground">
-                    {cvFile ? cvFile.name : "Click to upload PDF, DOC, or DOCX (max 5MB)"}
+                    {cvFile ? cvFile.name : isInternship ? "Optional: Click to upload PDF, DOC, or DOCX (max 5MB)" : "Click to upload PDF, DOC, or DOCX (max 5MB)"}
                   </span>
                   <input
                     type="file"
