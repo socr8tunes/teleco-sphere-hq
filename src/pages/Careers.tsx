@@ -114,7 +114,6 @@ const Careers = () => {
           ))}
         </div>
       </section>
-      </section>
 
       {/* Application Form */}
       <section id="apply-section">
