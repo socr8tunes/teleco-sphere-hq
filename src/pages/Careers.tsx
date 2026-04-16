@@ -12,9 +12,9 @@ const jobs = [
 ];
 
 const internships = [
-  { id: "I1", title: "Network Engineering Intern", duration: "3–6 months", location: "Accra, Ghana" },
-  { id: "I2", title: "Software Development Intern", duration: "3–6 months", location: "Accra, Ghana" },
-  { id: "I3", title: "IT Support Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I1", title: "Network Engineering Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
+  { id: "I2", title: "Software Development Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
+  { id: "I3", title: "IT Support Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
 ];
 
 const Careers = () => {
@@ -22,6 +22,9 @@ const Careers = () => {
   const [submitted, setSubmitted] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  // Check if applying to an internship
+  const isInternship = applyingTo ? internships.some(i => i.title === applyingTo) : false;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -206,13 +209,16 @@ const Careers = () => {
               </div>
 
               <div>
-                <label className="serial-number block mb-2">YEARS OF RELEVANT EXPERIENCE *</label>
+                <label className="serial-number block mb-2">
+                  YEARS OF RELEVANT EXPERIENCE {isInternship ? "" : "*"}
+                </label>
                 <select
-                  required
+                  required={!isInternship}
                   name="experience"
                   className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors"
                 >
-                  <option value="">Select experience level</option>
+                  <option value="">{isInternship ? "No experience / Select if any" : "Select experience level"}</option>
+                  <option>No experience (intern/student)</option>
                   <option>Less than 1 year</option>
                   <option>1–3 years</option>
                   <option>3–5 years</option>
@@ -234,11 +240,13 @@ const Careers = () => {
               </div>
 
               <div>
-                <label className="serial-number block mb-2">UPLOAD CV / RESUME</label>
+                <label className="serial-number block mb-2">
+                  UPLOAD CV / RESUME {isInternship ? "(Optional)" : ""}
+                </label>
                 <label className="flex items-center gap-3 w-full border border-dashed border-border rounded-sm px-4 py-4 cursor-pointer hover:border-cobalt transition-colors">
                   <Upload size={18} className="text-muted-foreground" strokeWidth={1.25} />
                   <span className="text-sm text-muted-foreground">
-                    {cvFile ? cvFile.name : "Click to upload PDF, DOC, or DOCX (max 5MB)"}
+                    {cvFile ? cvFile.name : isInternship ? "Optional: Click to upload PDF, DOC, or DOCX (max 5MB)" : "Click to upload PDF, DOC, or DOCX (max 5MB)"}
                   </span>
                   <input
                     type="file"
