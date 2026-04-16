@@ -11,6 +11,12 @@ const jobs = [
   { id: "03", title: "Embedded Systems Engineer", type: "Full-time", location: "Accra, Ghana" },
 ];
 
+const internships = [
+  { id: "I1", title: "Network Engineering Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I2", title: "Software Development Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I3", title: "IT Support Intern", duration: "3–6 months", location: "Accra, Ghana" },
+];
+
 const Careers = () => {
   const [applyingTo, setApplyingTo] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
