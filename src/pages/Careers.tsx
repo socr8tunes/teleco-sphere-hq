@@ -23,6 +23,9 @@ const Careers = () => {
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // Check if applying to an internship
+  const isInternship = applyingTo ? internships.some(i => i.title === applyingTo) : false;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
