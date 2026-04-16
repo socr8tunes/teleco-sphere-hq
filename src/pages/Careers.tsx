@@ -209,13 +209,16 @@ const Careers = () => {
               </div>
 
               <div>
-                <label className="serial-number block mb-2">YEARS OF RELEVANT EXPERIENCE *</label>
+                <label className="serial-number block mb-2">
+                  YEARS OF RELEVANT EXPERIENCE {isInternship ? "" : "*"}
+                </label>
                 <select
-                  required
+                  required={!isInternship}
                   name="experience"
                   className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors"
                 >
-                  <option value="">Select experience level</option>
+                  <option value="">{isInternship ? "No experience / Select if any" : "Select experience level"}</option>
+                  <option>No experience (intern/student)</option>
                   <option>Less than 1 year</option>
                   <option>1–3 years</option>
                   <option>3–5 years</option>
