@@ -12,9 +12,9 @@ const jobs = [
 ];
 
 const internships = [
-  { id: "I1", title: "Network Engineering Intern", duration: "3–6 months", location: "Accra, Ghana" },
-  { id: "I2", title: "Software Development Intern", duration: "3–6 months", location: "Accra, Ghana" },
-  { id: "I3", title: "IT Support Intern", duration: "3–6 months", location: "Accra, Ghana" },
+  { id: "I1", title: "Network Engineering Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
+  { id: "I2", title: "Software Development Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
+  { id: "I3", title: "IT Support Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
 ];
 
 const Careers = () => {
