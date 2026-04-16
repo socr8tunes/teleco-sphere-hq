@@ -111,7 +111,9 @@ const Careers = () => {
                 Apply <ArrowRight size={14} strokeWidth={1.25} />
               </button>
             </div>
+          ))}
         </div>
+      </section>
       </section>
 
       {/* Application Form */}
