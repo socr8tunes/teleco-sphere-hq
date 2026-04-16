@@ -89,6 +89,30 @@ const Careers = () => {
         </div>
       </section>
 
+      {/* Internships */}
+      <section className="border-b border-border">
+        <div className="container max-w-3xl py-16 space-y-0">
+          <h2 className="serial-number mb-6">INTERNSHIP OPPORTUNITIES</h2>
+          {internships.map((i) => (
+            <div key={i.id} className="surface-card p-6 flex items-center justify-between group">
+              <div>
+                <span className="serial-number">[{i.id}]</span>
+                <h3 className="mt-1 text-sm font-bold text-foreground">{i.title}</h3>
+                <p className="text-xs text-muted-foreground">{i.duration} — {i.location}</p>
+              </div>
+              <button
+                onClick={() => {
+                  setApplyingTo(i.title);
+                  setSubmitted(false);
+                  document.getElementById("apply-section")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="text-cobalt opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-xs font-medium"
+              >
+                Apply <ArrowRight size={14} strokeWidth={1.25} />
+              </button>
+            </div>
+          ))}
+
       {/* Application Form */}
       <section id="apply-section">
         <div className="container max-w-2xl py-16">
