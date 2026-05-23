@@ -101,6 +101,10 @@ const Index = () => (
       </div>
     </section>
 
+    {/* Leslie AI — flagship feature */}
+    <LeslieFeature />
+
+
     {/* Services */}
     <section className="relative overflow-hidden">
       <div className="container relative z-10 py-24">
