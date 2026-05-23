@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const services = [
-  "Telecommunications Infrastructure",
-  "Software Development",
-  "Automation & Smart Systems",
-  "Systems Integration",
-  "R&D and Prototyping",
+  { label: "Leslie AI Assistant", path: "/leslie" },
+  { label: "Telecommunications Infrastructure", path: "/services" },
+  { label: "Software Development", path: "/services" },
+  { label: "Automation & Smart Systems", path: "/services" },
+  { label: "Systems Integration", path: "/services" },
+  { label: "R&D and Prototyping", path: "/services" },
 ];
 
 const quickLinks = [
@@ -43,7 +44,11 @@ const Footer = () => (
           <h4 className="serial-number mb-5">Services</h4>
           <ul className="space-y-3">
             {services.map((s) => (
-              <li key={s} className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-default">{s}</li>
+              <li key={s.label}>
+                <Link to={s.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {s.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

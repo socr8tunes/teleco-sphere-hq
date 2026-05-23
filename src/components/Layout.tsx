@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import SystemStatusBar from "./SystemStatusBar";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import LeslieFloatingBadge from "./LeslieFloatingBadge";
 import { useAutoTheme } from "@/hooks/use-auto-theme";
 
 const Layout = ({ children }: { children: ReactNode }) => {
@@ -13,6 +14,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <LeslieFloatingBadge />
     </div>
   );
 };
