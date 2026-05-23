@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
+  { label: "Leslie AI", path: "/leslie", highlight: true },
   { label: "Solutions", path: "/solutions" },
   { label: "Industries", path: "/industries" },
   { label: "Case Studies", path: "/case-studies" },
@@ -36,7 +37,9 @@ const Navbar = () => {
               className={`px-3 py-1.5 text-sm transition-all duration-200 rounded-md ${
                 location.pathname === l.path
                   ? "text-foreground bg-secondary"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                  : l.highlight
+                    ? "text-cobalt hover:bg-cobalt/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               }`}
             >
               {l.label}

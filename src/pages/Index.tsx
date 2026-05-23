@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, Building2, Zap, Shield, Globe } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
+import LeslieFeature from "@/components/LeslieFeature";
 import heroImg from "@/assets/hero-infrastructure.jpg";
 
 const fadeUp = {
@@ -99,6 +100,10 @@ const Index = () => (
         </div>
       </div>
     </section>
+
+    {/* Leslie AI — flagship feature */}
+    <LeslieFeature />
+
 
     {/* Services */}
     <section className="relative overflow-hidden">
