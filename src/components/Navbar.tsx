@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Services", path: "/services" },
   { label: "Leslie AI", path: "/leslie", highlight: true },
   { label: "Solutions", path: "/solutions" },
+  { label: "Cybersecurity", path: "/cybersecurity" },
   { label: "Industries", path: "/industries" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Insights", path: "/insights" },

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, Building2, Zap, Shield, Globe } from "lucide-react";
+import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, Building2, Zap, Shield, Globe, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 import LeslieFeature from "@/components/LeslieFeature";
@@ -22,6 +22,7 @@ const services = [
   { id: "03", title: "Automation & Smart Systems", desc: "Smart kiosks, IoT devices, and industrial automation that transform operations.", icon: Cpu },
   { id: "04", title: "Systems Integration", desc: "End-to-end integration of hardware, software, and networks into unified solutions.", icon: Network },
   { id: "05", title: "R&D and Prototyping", desc: "Technical research, rapid prototyping, and proof-of-concept development.", icon: FlaskConical },
+  { id: "06", title: "Enterprise Cybersecurity", desc: "24/7 managed SOC, penetration testing, incident response, and compliance for mission-critical systems.", icon: ShieldCheck },
 ];
 
 const metrics = [

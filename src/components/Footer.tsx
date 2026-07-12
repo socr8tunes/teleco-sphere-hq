@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const services = [
   { label: "Leslie AI Assistant", path: "/leslie" },
+  { label: "Cybersecurity", path: "/cybersecurity" },
   { label: "Telecommunications Infrastructure", path: "/services" },
   { label: "Software Development", path: "/services" },
   { label: "Automation & Smart Systems", path: "/services" },

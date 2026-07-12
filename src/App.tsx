@@ -19,6 +19,7 @@ import AskQuestion from "./pages/AskQuestion";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Leslie from "./pages/Leslie";
+import Cybersecurity from "./pages/Cybersecurity";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/leslie" element={<Leslie />} />
+          <Route path="/cybersecurity" element={<Cybersecurity />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

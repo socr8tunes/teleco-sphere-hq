@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical } from "lucide-react";
+import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 
@@ -43,6 +43,14 @@ const services = [
     desc: "Technical research, rapid prototyping, and proof-of-concept development for emerging technology applications.",
     useCases: ["Proof-of-concept development", "Technology feasibility studies", "Hardware prototyping", "Patent-ready designs"],
     industries: ["All sectors"],
+  },
+  {
+    id: "06",
+    title: "Enterprise Cybersecurity",
+    icon: ShieldCheck,
+    desc: "Enterprise-grade security operations, offensive testing, and compliance for mission-critical infrastructure. 24/7 monitoring, incident response, and risk-based hardening.",
+    useCases: ["24/7 Managed SOC & SIEM", "Penetration testing & vulnerability audits", "Network, endpoint & identity security", "Incident response & digital forensics", "ISO 27001, PCI-DSS & GDPR compliance"],
+    industries: ["Finance", "Government", "Healthcare", "Telecom", "Enterprise"],
   },
 ];
 
