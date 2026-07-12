@@ -9,12 +9,16 @@ const jobs = [
   { id: "01", title: "Senior Network Engineer", type: "Full-time", location: "Accra, Ghana" },
   { id: "02", title: "Full-Stack Software Developer", type: "Full-time", location: "Accra, Ghana" },
   { id: "03", title: "Embedded Systems Engineer", type: "Full-time", location: "Accra, Ghana" },
+  { id: "04", title: "Cybersecurity Analyst (SOC)", type: "Full-time", location: "Accra, Ghana" },
+  { id: "05", title: "Penetration Tester / Offensive Security Engineer", type: "Full-time", location: "Accra, Ghana" },
+  { id: "06", title: "Security Engineer (Cloud & Network)", type: "Full-time", location: "Accra, Ghana" },
 ];
 
 const internships = [
   { id: "I1", title: "Network Engineering Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
   { id: "I2", title: "Software Development Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
   { id: "I3", title: "IT Support Intern", duration: "1–6 months", location: "Remote or Accra, Ghana" },
+  { id: "I4", title: "Cybersecurity Intern (SOC / Blue Team)", duration: "1–6 months", location: "Remote or Accra, Ghana" },
 ];
 
 const Careers = () => {
