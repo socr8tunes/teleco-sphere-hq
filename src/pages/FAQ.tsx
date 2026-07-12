@@ -13,6 +13,10 @@ const faqs = [
   { q: "Do you offer ongoing support?", a: "Yes. We provide maintenance contracts, SLA-based support, and 24/7 monitoring for mission-critical deployments." },
   { q: "Where is Teleco based?", a: "Teleco is headquartered in Accra, Ghana, with project operations across West Africa." },
   { q: "Can you integrate with existing systems?", a: "Systems integration is a core capability. We specialize in connecting legacy systems with modern platforms and hardware." },
+  { q: "Do you offer cybersecurity services?", a: "Yes. We provide enterprise-grade cybersecurity including 24/7 managed SOC, penetration testing, threat detection and response (SIEM/EDR), network security, identity & access management, and incident response." },
+  { q: "What cybersecurity compliance frameworks do you support?", a: "We align engagements with ISO 27001, PCI-DSS, GDPR, the Ghana Data Protection Act, NIST CSF, and SOC 2. We produce audit-ready documentation and remediation plans." },
+  { q: "We think we've been breached — can you help?", a: "Yes. Our incident response team can be engaged for rapid containment, digital forensics, and recovery. Use the Cybersecurity page form and mark urgency as 'Active incident' — we prioritize those requests." },
+  { q: "Do you perform penetration testing?", a: "Yes — external, internal, web application, API, and mobile penetration tests. Deliverables include an executive summary, technical findings, CVSS scoring, and remediation guidance." },
 ];
 
 const FaqItem = ({ q, a }: { q: string; a: string }) => {
