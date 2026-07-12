@@ -19,7 +19,39 @@ const capabilities = [
 
 const compliance = ["ISO 27001", "PCI-DSS", "GDPR", "Ghana Data Protection Act", "NIST CSF", "SOC 2"];
 
-const Cybersecurity = () => (
+const Cybersecurity = () => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const toastId = toast.loading("Sending your request…");
+    const fd = new FormData(e.currentTarget);
+    const ok = await submitForm({
+      type: "contact",
+      subject: "Cybersecurity Lead",
+      name: fd.get("name") as string,
+      email: fd.get("email") as string,
+      phone: (fd.get("phone") as string) || "",
+      company: (fd.get("company") as string) || "",
+      companySize: (fd.get("companySize") as string) || "",
+      industry: (fd.get("industry") as string) || "",
+      interest: (fd.get("interest") as string) || "",
+      urgency: (fd.get("urgency") as string) || "",
+      message: (fd.get("message") as string) || "",
+    });
+    setSubmitting(false);
+    if (ok) {
+      toast.success("Request received. Our security team will be in touch.", { id: toastId });
+      setSubmitted(true);
+      (e.target as HTMLFormElement).reset();
+    } else {
+      toast.error("Failed to send. Please try again.", { id: toastId });
+    }
+  };
+
+  return (
   <Layout>
     {/* Hero */}
     <section className="relative overflow-hidden border-b border-border">
