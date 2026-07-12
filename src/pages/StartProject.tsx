@@ -86,6 +86,7 @@ const StartProject = () => {
                   <option>Automation & Smart Systems</option>
                   <option>Systems Integration</option>
                   <option>R&D and Prototyping</option>
+                  <option>Enterprise Cybersecurity</option>
                   <option>Multiple / Not Sure</option>
                 </select>
               </div>
