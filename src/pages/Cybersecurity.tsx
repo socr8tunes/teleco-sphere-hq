@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Lock, Eye, AlertTriangle, ServerCog, KeyRound, FileSearch, Users } from "lucide-react";
+import { ArrowRight, Shield, Lock, Eye, AlertTriangle, ServerCog, KeyRound, FileSearch, Users, Send } from "lucide-react";
+import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
+import { submitForm } from "@/lib/api";
 
 const capabilities = [
   { icon: Shield, title: "Managed Security (SOC-as-a-Service)", desc: "24/7 monitoring, threat detection, and incident response by our security operations team." },
