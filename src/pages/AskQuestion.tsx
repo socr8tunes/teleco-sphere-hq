@@ -45,7 +45,7 @@ const AskQuestion = () => {
       </section>
 
       <section>
-        <div className="container max-w-2xl py-16">
+        <div className="container max-w-3xl mx-auto py-16">
           {submitted ? (
             <div className="surface-card p-10 text-center">
               <span className="serial-number">[RECEIVED]</span>
