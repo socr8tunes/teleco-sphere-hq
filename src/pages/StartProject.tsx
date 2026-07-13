@@ -58,16 +58,21 @@ const StartProject = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="serial-number block mb-2">NAME *</label>
-                  <input required type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Full name" />
-                </div>
-                <div>
-                  <label className="serial-number block mb-2">COMPANY *</label>
                   <input required name="name" type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Full name" />
                 </div>
                 <div>
                   <label className="serial-number block mb-2">COMPANY *</label>
                   <input required name="company" type="text" maxLength={100} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="Company name" />
                 </div>
+                <div>
+                  <label className="serial-number block mb-2">EMAIL *</label>
+                  <input required name="email" type="email" maxLength={255} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="email@company.com" />
+                </div>
+                <div>
+                  <label className="serial-number block mb-2">PHONE</label>
+                  <input name="phone" type="tel" maxLength={20} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="+233..." />
+                </div>
+              </div>
                 <div>
                   <label className="serial-number block mb-2">EMAIL *</label>
                   <input required name="email" type="email" maxLength={255} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="email@company.com" />
