@@ -20,12 +20,6 @@ const moreLinks = [
   { label: "Contact", path: "/contact" },
 ];
 
-const allLinks = [
-  { label: "Home", path: "/" },
-  ...primaryLinks,
-  ...moreLinks,
-];
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -46,6 +40,27 @@ const Navbar = () => {
     setMoreOpen(false);
     setOpen(false);
   }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const isMoreActive = moreLinks.some((l) => l.path === location.pathname);
 
@@ -74,7 +89,6 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* More dropdown */}
           <div className="relative" ref={moreRef}>
             <button
               onClick={() => setMoreOpen((v) => !v)}
@@ -131,46 +145,110 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground p-1.5 rounded-md hover:bg-secondary transition-colors">
-          {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="lg:hidden text-foreground p-2 rounded-md hover:bg-secondary transition-colors"
+        >
+          {open ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu: backdrop + slide-in panel */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-            className="overflow-hidden border-t border-border lg:hidden"
-          >
-            <div className="container flex flex-col gap-1 py-4">
-              {allLinks.map((l) => (
-                <Link
-                  key={l.path}
-                  to={l.path}
-                  onClick={() => setOpen(false)}
-                  className={`px-3 py-2.5 text-sm rounded-md ${
-                    location.pathname === l.path
-                      ? "text-foreground bg-secondary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                  }`}
-                >
-                  {l.label}
-                </Link>
-              ))}
-              <div className="mt-3 flex flex-col gap-2 border-t border-border pt-4">
-                <Link to="/ask" onClick={() => setOpen(false)} className="px-4 py-2.5 text-sm text-muted-foreground border border-border rounded-lg text-center">
-                  Ask a Question
-                </Link>
-                <Link to="/start-project" onClick={() => setOpen(false)} className="btn-primary justify-center text-sm">
-                  Start a Project
-                </Link>
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 top-16 z-40 bg-background/70 backdrop-blur-sm lg:hidden"
+            />
+            <motion.div
+              key="panel"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}
+              className="fixed right-0 top-16 z-50 h-[calc(100vh-4rem)] w-[85%] max-w-sm border-l border-border bg-background/95 backdrop-blur-xl overflow-y-auto lg:hidden"
+            >
+              <div className="flex flex-col gap-6 px-5 py-6">
+                <div className="flex flex-col gap-0.5">
+                  <span className="px-3 pb-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    Explore
+                  </span>
+                  <Link
+                    to="/"
+                    onClick={() => setOpen(false)}
+                    className={`px-3 py-2.5 text-base rounded-md ${
+                      location.pathname === "/"
+                        ? "text-foreground bg-secondary"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    }`}
+                  >
+                    Home
+                  </Link>
+                  {primaryLinks.map((l) => (
+                    <Link
+                      key={l.path}
+                      to={l.path}
+                      onClick={() => setOpen(false)}
+                      className={`px-3 py-2.5 text-base rounded-md ${
+                        location.pathname === l.path
+                          ? "text-foreground bg-secondary"
+                          : l.highlight
+                            ? "text-cobalt hover:bg-cobalt/10"
+                            : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                      }`}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-0.5 border-t border-border pt-4">
+                  <span className="px-3 pb-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    Company
+                  </span>
+                  {moreLinks.map((l) => (
+                    <Link
+                      key={l.path}
+                      to={l.path}
+                      onClick={() => setOpen(false)}
+                      className={`px-3 py-2.5 text-base rounded-md ${
+                        location.pathname === l.path
+                          ? "text-foreground bg-secondary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                      }`}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-2 border-t border-border pt-4">
+                  <Link
+                    to="/ask"
+                    onClick={() => setOpen(false)}
+                    className="px-4 py-3 text-sm text-muted-foreground border border-border rounded-lg text-center hover:bg-secondary hover:text-foreground transition-colors"
+                  >
+                    Ask a Question
+                  </Link>
+                  <Link
+                    to="/start-project"
+                    onClick={() => setOpen(false)}
+                    className="btn-primary justify-center text-sm"
+                  >
+                    Start a Project
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
