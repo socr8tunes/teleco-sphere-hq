@@ -73,15 +73,6 @@ const StartProject = () => {
                   <input name="phone" type="tel" maxLength={20} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="+233..." />
                 </div>
               </div>
-                <div>
-                  <label className="serial-number block mb-2">EMAIL *</label>
-                  <input required name="email" type="email" maxLength={255} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="email@company.com" />
-                </div>
-                <div>
-                  <label className="serial-number block mb-2">PHONE</label>
-                  <input name="phone" type="tel" maxLength={20} className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-cobalt transition-colors" placeholder="+233..." />
-                </div>
-              </div>
               <div>
                 <label className="serial-number block mb-2">SERVICE CATEGORY *</label>
                 <select required name="service" className="w-full bg-transparent border border-border rounded-sm px-3 py-2.5 text-sm text-foreground focus:outline-none focus:border-cobalt transition-colors">
