@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
+const primaryLinks = [
   { label: "Services", path: "/services" },
   { label: "Leslie AI", path: "/leslie", highlight: true },
   { label: "Solutions", path: "/solutions" },
   { label: "Cybersecurity", path: "/cybersecurity" },
   { label: "Industries", path: "/industries" },
+];
+
+const moreLinks = [
+  { label: "About", path: "/about" },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Insights", path: "/insights" },
   { label: "FAQ", path: "/faq" },
@@ -18,24 +20,49 @@ const navLinks = [
   { label: "Contact", path: "/contact" },
 ];
 
+const allLinks = [
+  { label: "Home", path: "/" },
+  ...primaryLinks,
+  ...moreLinks,
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const location = useLocation();
+  const moreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  useEffect(() => {
+    setMoreOpen(false);
+    setOpen(false);
+  }, [location.pathname]);
+
+  const isMoreActive = moreLinks.some((l) => l.path === location.pathname);
 
   return (
     <nav className="sticky top-0 z-50 w-full glass-panel border-b border-border">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="font-mono text-xl font-bold tracking-tight text-foreground">
+      <div className="container flex h-16 items-center justify-between gap-4">
+        <Link to="/" className="font-mono text-xl font-bold tracking-tight text-foreground shrink-0">
           TELECO<span className="text-cobalt">.</span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-0.5 lg:flex">
-          {navLinks.map((l) => (
+        <div className="hidden items-center gap-1 lg:flex">
+          {primaryLinks.map((l) => (
             <Link
               key={l.path}
               to={l.path}
-              className={`px-3 py-1.5 text-sm transition-all duration-200 rounded-md ${
+              className={`px-3 py-1.5 text-sm transition-all duration-200 rounded-md whitespace-nowrap ${
                 location.pathname === l.path
                   ? "text-foreground bg-secondary"
                   : l.highlight
@@ -46,18 +73,58 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+
+          {/* More dropdown */}
+          <div className="relative" ref={moreRef}>
+            <button
+              onClick={() => setMoreOpen((v) => !v)}
+              className={`flex items-center gap-1 px-3 py-1.5 text-sm rounded-md transition-all duration-200 whitespace-nowrap ${
+                isMoreActive || moreOpen
+                  ? "text-foreground bg-secondary"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+              }`}
+            >
+              More
+              <ChevronDown size={14} className={`transition-transform ${moreOpen ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence>
+              {moreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 mt-2 w-48 glass-panel border border-border rounded-lg p-1.5 shadow-lg"
+                >
+                  {moreLinks.map((l) => (
+                    <Link
+                      key={l.path}
+                      to={l.path}
+                      className={`block px-3 py-2 text-sm rounded-md transition-colors ${
+                        location.pathname === l.path
+                          ? "text-foreground bg-secondary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                      }`}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex shrink-0">
           <Link
             to="/ask"
-            className="px-4 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-secondary hover:text-foreground transition-all duration-200"
+            className="px-3 py-2 text-sm font-medium text-muted-foreground border border-border rounded-lg hover:bg-secondary hover:text-foreground transition-all duration-200 whitespace-nowrap"
           >
             Ask a Question
           </Link>
           <Link
             to="/start-project"
-            className="btn-primary !py-2 text-sm"
+            className="btn-primary !py-2 !px-4 text-sm whitespace-nowrap"
           >
             Start a Project
           </Link>
@@ -80,7 +147,7 @@ const Navbar = () => {
             className="overflow-hidden border-t border-border lg:hidden"
           >
             <div className="container flex flex-col gap-1 py-4">
-              {navLinks.map((l) => (
+              {allLinks.map((l) => (
                 <Link
                   key={l.path}
                   to={l.path}
