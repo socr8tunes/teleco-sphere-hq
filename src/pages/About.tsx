@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Lightbulb, Zap, Shield, Users } from "lucide-react";
+import { Target, Eye, Lightbulb, Zap, Shield, Users, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 
@@ -46,10 +46,48 @@ const About = () => (
       </div>
     </section>
 
+    {/* Our Story / Founder's Vision */}
+    <section className="border-b border-border relative overflow-hidden">
+      <div className="orb w-[500px] h-[500px] bg-cobalt/5 -top-40 -right-40" />
+      <div className="container relative z-10 py-20">
+        <SectionLabel number="01" label="Our Story" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-4">
+              <Sparkles size={20} strokeWidth={1.25} className="text-cobalt" />
+              <span className="serial-number">FOUNDER&apos;S VISION</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              Bridging Africa to global technology standards.
+            </h2>
+            <div className="mt-8 surface-card p-6">
+              <p className="serial-number">FOUNDER</p>
+              <p className="mt-2 text-lg font-bold text-foreground">Emmanuel Nii Teiko Tagoe</p>
+              <p className="mt-1 text-sm text-muted-foreground">Founder &amp; CEO · Est. 2016</p>
+            </div>
+          </div>
+          <div className="lg:col-span-7 space-y-5 text-foreground/90 leading-relaxed">
+            <p>
+              Founded in <span className="text-cobalt font-semibold">2016</span> by Emmanuel Nii Teiko Tagoe, Teleco was created with a vision to bridge the technology gap between Africa and global standards.
+            </p>
+            <p>
+              After completing university, Emmanuel identified a growing gap between the rapid advancement of technology globally and the availability of innovative, reliable, and scalable technology solutions across Africa. This inspired the creation of Teleco — a company focused on bringing world-class technology solutions to African businesses and communities.
+            </p>
+            <p>
+              Teleco was founded on the belief that Africa should not only consume technology but also <span className="text-foreground font-semibold">build, innovate, and compete globally</span>.
+            </p>
+            <p>
+              Today, Teleco continues to drive digital transformation through telecommunications, cybersecurity, artificial intelligence, digital platforms, and emerging technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* What we build */}
     <section className="border-b border-border">
       <div className="container py-20">
-        <SectionLabel number="01" label="Capabilities" />
+        <SectionLabel number="02" label="Capabilities" />
         <h2 className="text-3xl font-bold text-foreground md:text-5xl">What Teleco Builds</h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-0">
           {[
@@ -73,7 +111,7 @@ const About = () => (
     {/* Differentiators */}
     <section className="border-b border-border">
       <div className="container py-20">
-        <SectionLabel number="02" label="Differentiators" />
+        <SectionLabel number="03" label="Differentiators" />
         <h2 className="text-3xl font-bold text-foreground md:text-5xl">What Makes Us Different</h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {[
