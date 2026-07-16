@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Lightbulb, Zap, Shield, Users } from "lucide-react";
+import { Target, Eye, Lightbulb, Zap, Shield, Users, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionLabel from "@/components/SectionLabel";
 
