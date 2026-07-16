@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Building2, Heart, Radio, ShoppingCart, Truck, Landmark, GraduationCap, Hotel } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const industries = [
@@ -15,6 +16,7 @@ const industries = [
 
 const Industries = () => (
   <Layout>
+      <Seo title={"Industries We Serve — Teleco Ltd"} description={"Teleco delivers engineering solutions across healthcare, telecom, retail, logistics, public sector, education, and hospitality."} path="/industries" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Industries" />

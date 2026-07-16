@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const services = [
@@ -56,6 +57,8 @@ const services = [
 
 const Services = () => (
   <Layout>
+      <Seo title="Services — Telecom, Software & Automation" description="Full-stack engineering services: telecommunications infrastructure, custom software, automation, systems integration and R&D." path="/services"
+        jsonLd={services.map(s => ({ "@context":"https://schema.org", "@type":"Service", name: s.title, description: s.desc, provider: { "@type":"Organization", name:"Teleco Ltd" }, areaServed: "West Africa" }))} />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Services" />
@@ -83,7 +86,7 @@ const Services = () => (
             </div>
             <div>
               <div className="mb-6">
-                <h4 className="serial-number mb-3">[USE CASES]</h4>
+                <h3 className="serial-number mb-3">[USE CASES]</h3>
                 <ul className="space-y-2">
                   {s.useCases.map((u) => (
                     <li key={u} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -93,7 +96,7 @@ const Services = () => (
                 </ul>
               </div>
               <div>
-                <h4 className="serial-number mb-3">[INDUSTRIES]</h4>
+                <h3 className="serial-number mb-3">[INDUSTRIES]</h3>
                 <div className="flex flex-wrap gap-2">
                   {s.industries.map((ind) => (
                     <span key={ind} className="px-3 py-1 text-xs text-muted-foreground border border-border rounded-sm">{ind}</span>

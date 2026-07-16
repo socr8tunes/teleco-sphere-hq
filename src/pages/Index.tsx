@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, Building2, Zap, Shield, Globe, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import LeslieFeature from "@/components/LeslieFeature";
 import heroImg from "@/assets/hero-infrastructure.jpg";
@@ -38,6 +39,7 @@ const industries = [
 
 const Index = () => (
   <Layout>
+      <Seo title={"Teleco Ltd — Technology & Engineering in Ghana"} description={"Telecom infrastructure, software, cybersecurity, automation and systems integration for enterprises across Ghana and West Africa."} path="/" />
     {/* Hero */}
     <section className="relative overflow-hidden min-h-[85vh] flex items-center">
       {/* Background layers */}
@@ -141,7 +143,7 @@ const Index = () => (
                 <h3 className="mt-5 text-lg font-bold text-foreground">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 <Link to="/services" className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-cobalt opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  Learn more <ArrowRight size={12} strokeWidth={1.5} />
+                  View {s.title} details <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>
               </div>
             </motion.div>
@@ -209,7 +211,7 @@ const Index = () => (
                 <div className="p-2 rounded-md bg-cobalt/10 border border-cobalt/20 w-fit">
                   <item.icon size={18} strokeWidth={1.5} className="text-cobalt" />
                 </div>
-                <h4 className="mt-4 text-sm font-bold text-foreground">{item.title}</h4>
+                <h3 className="mt-4 text-sm font-bold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}

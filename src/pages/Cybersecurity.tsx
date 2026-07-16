@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Lock, Eye, AlertTriangle, ServerCog, KeyRound, FileSearch, Users, Send } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
@@ -53,6 +54,8 @@ const Cybersecurity = () => {
 
   return (
   <Layout>
+      <Seo title="Enterprise Cybersecurity in Ghana — Teleco" description="24/7 managed SOC, penetration testing, incident response, and ISO 27001 / PCI-DSS compliance for enterprises across West Africa." path="/cybersecurity"
+        jsonLd={{ "@context":"https://schema.org", "@type":"Service", name:"Enterprise Cybersecurity", serviceType:"Managed Security Services", description:"Managed SOC, penetration testing, incident response, IAM, and compliance (ISO 27001, PCI-DSS, GDPR, Ghana DPA, NIST CSF, SOC 2).", provider:{ "@type":"Organization", name:"Teleco Ltd" }, areaServed:["Ghana","West Africa"] }} />
     {/* Hero */}
     <section className="relative overflow-hidden border-b border-border">
       <div className="orb w-[500px] h-[500px] bg-cobalt/15 -top-40 -right-40 animate-pulse-glow" />

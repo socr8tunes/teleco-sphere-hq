@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const caseStudies = [
@@ -30,6 +31,7 @@ const caseStudies = [
 
 const CaseStudies = () => (
   <Layout>
+      <Seo title={"Case Studies — Teleco Ltd"} description={"Selected engineering deployments across telecom, healthcare, logistics and public sector clients in West Africa."} path="/case-studies" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Case Studies" />
@@ -47,15 +49,15 @@ const CaseStudies = () => (
           <h2 className="mt-3 text-2xl font-bold text-foreground md:text-3xl">{cs.title}</h2>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
             <div className="surface-card p-6">
-              <h4 className="serial-number mb-2">[CHALLENGE]</h4>
+              <h3 className="serial-number mb-2">[CHALLENGE]</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{cs.challenge}</p>
             </div>
             <div className="surface-card p-6">
-              <h4 className="serial-number mb-2">[SOLUTION]</h4>
+              <h3 className="serial-number mb-2">[SOLUTION]</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{cs.solution}</p>
             </div>
             <div className="surface-card p-6">
-              <h4 className="serial-number mb-2">[TECHNOLOGY]</h4>
+              <h3 className="serial-number mb-2">[TECHNOLOGY]</h3>
               <div className="flex flex-wrap gap-1.5">
                 {cs.tech.map((t) => (
                   <span key={t} className="px-2 py-0.5 text-[10px] font-mono text-muted-foreground border border-border rounded-sm">{t}</span>
@@ -63,7 +65,7 @@ const CaseStudies = () => (
               </div>
             </div>
             <div className="surface-card p-6">
-              <h4 className="serial-number mb-2">[IMPACT]</h4>
+              <h3 className="serial-number mb-2">[IMPACT]</h3>
               <p className="text-sm text-cobalt leading-relaxed">{cs.impact}</p>
             </div>
           </div>

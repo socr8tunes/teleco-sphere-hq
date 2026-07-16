@@ -1,0 +1,27 @@
+# Teleco Ltd
+
+> Ghana-based technology and engineering company delivering telecommunications infrastructure, software development, cybersecurity, automation, systems integration, and the Leslie AI assistant across West Africa.
+
+Teleco Ltd is headquartered in Accra, Ghana. We design, build, and integrate mission-critical systems for enterprises, government, healthcare, telecom, retail, logistics, and hospitality.
+
+## Pages
+
+- [About](/about): Company story, mission, vision, and founder Emmanuel Nii Teiko Tagoe.
+- [Services](/services): Telecom infrastructure, software development, automation, systems integration, R&D, cybersecurity.
+- [Solutions](/solutions): Vertical solutions and platforms Teleco delivers.
+- [Cybersecurity](/cybersecurity): Enterprise-grade managed SOC, penetration testing, incident response, compliance (ISO 27001, PCI-DSS, GDPR, Ghana DPA).
+- [Leslie AI](/leslie): Conversational AI assistant on WhatsApp and Telegram for shopping, payments, deliveries, and information.
+- [Industries](/industries): Sectors we serve — healthcare, telecom, retail, logistics, public sector, education, hospitality.
+- [Case Studies](/case-studies): Selected engagements and their outcomes.
+- [Insights](/insights): Articles and technical write-ups.
+- [FAQ](/faq): Common questions about Teleco's services, engagements, and support.
+- [Careers](/careers): Open roles and internship opportunities.
+- [Partners](/partners): Technology and channel partners.
+- [Contact](/contact): Get in touch with Teleco.
+- [Start a Project](/start-project): Submit a project brief for engineering review.
+- [Ask a Question](/ask): Send a general inquiry.
+
+## Optional
+
+- [Privacy Policy](/privacy)
+- [Terms of Service](/terms)

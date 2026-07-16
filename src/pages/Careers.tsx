@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Upload, Send } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import { submitCareerApplication } from "@/lib/api";
 
@@ -60,6 +61,7 @@ const Careers = () => {
 
   return (
     <Layout>
+      <Seo title={"Careers & Internships — Teleco Ltd"} description={"Join Teleco. Full-time engineering roles and 1–6 month remote or on-site internships across networks, software, security and IT."} path="/careers" />
       <section className="border-b border-border">
         <div className="container py-20">
           <SectionLabel number="00" label="Careers" />

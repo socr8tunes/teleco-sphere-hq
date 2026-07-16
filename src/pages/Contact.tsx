@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
@@ -34,6 +35,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <Seo title={"Contact Teleco Ltd — Accra, Ghana"} description={"Get in touch with Teleco Ltd. Call +233 597 420 752 or visit us at 111 Nsunfa Temple Street, Sowutuom, Accra."} path="/contact" />
       <section className="border-b border-border">
         <div className="container py-20">
           <SectionLabel number="00" label="Contact" />
