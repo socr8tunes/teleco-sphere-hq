@@ -141,7 +141,7 @@ const Index = () => (
                 <h3 className="mt-5 text-lg font-bold text-foreground">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 <Link to="/services" className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-cobalt opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  Learn more <ArrowRight size={12} strokeWidth={1.5} />
+                  View {s.title} details <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>
               </div>
             </motion.div>
