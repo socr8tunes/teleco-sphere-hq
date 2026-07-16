@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
@@ -35,6 +36,7 @@ const StartProject = () => {
 
   return (
     <Layout>
+      <Seo title={"Start a Project — Teleco Ltd"} description={"Tell us about your project. Our engineering team responds within 24 hours to scope telecom, software, security or automation work."} path="/start-project" />
       <section className="border-b border-border">
         <div className="container py-20">
           <SectionLabel number="00" label="Start a Project" />

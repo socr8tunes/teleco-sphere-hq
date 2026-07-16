@@ -1,8 +1,10 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const Terms = () => (
   <Layout>
+      <Seo title={"Terms of Service — Teleco Ltd"} description={"Terms governing use of Teleco Ltd's website and services."} path="/terms" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Legal" />

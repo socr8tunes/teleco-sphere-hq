@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const caseStudies = [
@@ -30,6 +31,7 @@ const caseStudies = [
 
 const CaseStudies = () => (
   <Layout>
+      <Seo title={"Case Studies — Teleco Ltd"} description={"Selected engineering deployments across telecom, healthcare, logistics and public sector clients in West Africa."} path="/case-studies" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Case Studies" />

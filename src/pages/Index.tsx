@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, Building2, Zap, Shield, Globe, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import LeslieFeature from "@/components/LeslieFeature";
 import heroImg from "@/assets/hero-infrastructure.jpg";
@@ -38,6 +39,7 @@ const industries = [
 
 const Index = () => (
   <Layout>
+      <Seo title={"Teleco Ltd — Technology & Engineering in Ghana"} description={"Telecom infrastructure, software, cybersecurity, automation and systems integration for enterprises across Ghana and West Africa."} path="/" />
     {/* Hero */}
     <section className="relative overflow-hidden min-h-[85vh] flex items-center">
       {/* Background layers */}

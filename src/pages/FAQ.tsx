@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const faqs = [
@@ -46,6 +47,8 @@ const FaqItem = ({ q, a }: { q: string; a: string }) => {
 
 const FAQ = () => (
   <Layout>
+      <Seo title={"Frequently Asked Questions — Teleco Ltd"} description={"Answers about Teleco's services, cybersecurity, project engagement, support and industries served."} path="/faq",
+      jsonLd={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type":"Question", name:f.q, acceptedAnswer:{ "@type":"Answer", text:f.a } })) }} />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="FAQ" />

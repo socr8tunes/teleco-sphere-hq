@@ -14,6 +14,7 @@ import {
   Globe,
 } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const features = [
@@ -57,6 +58,7 @@ const why = [
 
 const Leslie = () => (
   <Layout>
+      <Seo title={"Leslie by Teleco — Conversational AI Assistant"} description={"Leslie helps you shop, send money, track deliveries and get news via WhatsApp and Telegram — built by Teleco."} path="/leslie" />
     {/* Hero */}
     <section className="relative overflow-hidden min-h-[80vh] flex items-center border-b border-border">
       <div className="orb w-[600px] h-[600px] bg-cobalt/25 -top-40 -right-40 animate-pulse-glow" />

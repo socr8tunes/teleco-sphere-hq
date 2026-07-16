@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 import { submitForm } from "@/lib/api";
 
@@ -34,6 +35,7 @@ const AskQuestion = () => {
 
   return (
     <Layout>
+      <Seo title={"Ask a Question — Teleco Ltd"} description={"Have a question for our team? Send an inquiry and Teleco's engineers will respond with expert guidance."} path="/ask-question" />
       <section className="border-b border-border">
         <div className="container py-20">
           <SectionLabel number="00" label="Ask a Question" />

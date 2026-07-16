@@ -1,8 +1,10 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const Privacy = () => (
   <Layout>
+      <Seo title={"Privacy Policy — Teleco Ltd"} description={"How Teleco Ltd collects, uses and protects your information."} path="/privacy" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Legal" />

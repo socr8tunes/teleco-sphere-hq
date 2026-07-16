@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const articles = [
@@ -9,6 +10,7 @@ const articles = [
 
 const Insights = () => (
   <Layout>
+      <Seo title={"Insights & Articles — Teleco Ltd"} description={"Technical articles and perspectives on telecom, cybersecurity, AI and digital infrastructure in Africa."} path="/insights" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Insights" />

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Lightbulb, Zap, Shield, Users, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const fadeUp = {
@@ -11,6 +12,7 @@ const fadeUp = {
 
 const About = () => (
   <Layout>
+      <Seo title={"About Teleco Ltd — Our Story & Vision"} description={"Founded in 2016 by Emmanuel Nii Teiko Tagoe, Teleco bridges Africa's tech gap through telecom, cybersecurity, AI and digital platforms."} path="/about" />
     {/* Header */}
     <section className="border-b border-border">
       <div className="container py-20">

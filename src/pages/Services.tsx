@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Radio, Code, Cpu, Network, FlaskConical, ShieldCheck } from "lucide-react";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const services = [
@@ -56,6 +57,7 @@ const services = [
 
 const Services = () => (
   <Layout>
+      <Seo title={"Services — Telecom, Software & Automation"} description={"Full-stack engineering services: telecommunications infrastructure, custom software, automation, systems integration and R&D."} path="/services" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Services" />

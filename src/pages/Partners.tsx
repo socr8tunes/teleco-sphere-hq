@@ -1,8 +1,10 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import SectionLabel from "@/components/SectionLabel";
 
 const Partners = () => (
   <Layout>
+      <Seo title={"Partners — Teleco Ltd"} description={"Technology and channel partners we work with to deliver enterprise-grade solutions across West Africa."} path="/partners" />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Partners" />
