@@ -83,7 +83,7 @@ const Services = () => (
             </div>
             <div>
               <div className="mb-6">
-                <h4 className="serial-number mb-3">[USE CASES]</h4>
+                <h3 className="serial-number mb-3">[USE CASES]</h3>
                 <ul className="space-y-2">
                   {s.useCases.map((u) => (
                     <li key={u} className="text-sm text-muted-foreground flex items-start gap-2">
