@@ -57,7 +57,8 @@ const services = [
 
 const Services = () => (
   <Layout>
-      <Seo title={"Services — Telecom, Software & Automation"} description={"Full-stack engineering services: telecommunications infrastructure, custom software, automation, systems integration and R&D."} path="/services" />
+      <Seo title="Services — Telecom, Software & Automation" description="Full-stack engineering services: telecommunications infrastructure, custom software, automation, systems integration and R&D." path="/services"
+        jsonLd={services.map(s => ({ "@context":"https://schema.org", "@type":"Service", name: s.title, description: s.desc, provider: { "@type":"Organization", name:"Teleco Ltd" }, areaServed: "West Africa" }))} />
     <section className="border-b border-border">
       <div className="container py-20">
         <SectionLabel number="00" label="Services" />
