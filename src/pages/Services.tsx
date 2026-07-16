@@ -93,7 +93,7 @@ const Services = () => (
                 </ul>
               </div>
               <div>
-                <h4 className="serial-number mb-3">[INDUSTRIES]</h4>
+                <h3 className="serial-number mb-3">[INDUSTRIES]</h3>
                 <div className="flex flex-wrap gap-2">
                   {s.industries.map((ind) => (
                     <span key={ind} className="px-3 py-1 text-xs text-muted-foreground border border-border rounded-sm">{ind}</span>
