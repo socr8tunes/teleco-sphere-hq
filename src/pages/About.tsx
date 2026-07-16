@@ -111,7 +111,7 @@ const About = () => (
     {/* Differentiators */}
     <section className="border-b border-border">
       <div className="container py-20">
-        <SectionLabel number="02" label="Differentiators" />
+        <SectionLabel number="03" label="Differentiators" />
         <h2 className="text-3xl font-bold text-foreground md:text-5xl">What Makes Us Different</h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {[
