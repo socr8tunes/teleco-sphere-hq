@@ -122,7 +122,7 @@ const About = () => (
           ].map((d) => (
             <div key={d.title} className="surface-card p-6">
               <d.icon size={20} strokeWidth={1.25} className="text-cobalt" />
-              <h4 className="mt-3 text-sm font-bold text-foreground">{d.title}</h4>
+              <h3 className="mt-3 text-sm font-bold text-foreground">{d.title}</h3>
               <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
             </div>
           ))}
