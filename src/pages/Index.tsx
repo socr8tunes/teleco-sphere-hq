@@ -209,7 +209,7 @@ const Index = () => (
                 <div className="p-2 rounded-md bg-cobalt/10 border border-cobalt/20 w-fit">
                   <item.icon size={18} strokeWidth={1.5} className="text-cobalt" />
                 </div>
-                <h4 className="mt-4 text-sm font-bold text-foreground">{item.title}</h4>
+                <h3 className="mt-4 text-sm font-bold text-foreground">{item.title}</h3>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
